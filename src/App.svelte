@@ -1,10 +1,22 @@
 <script>
-	export let name;
+	let name = 'atidorfa';
+	let linkname = 'Google'
+
+	const handleClick = () => {
+		linkname = 'Google';
+	};
+
+	const handleInput = (e) => {
+		linkname = e.target.value;
+	};
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<p style="color: {linkname};">This is a link to <a href="https://google.com.ar">{linkname}</a></p>
+	<button on:click={handleClick}>Update</button>
+	<!-- <input type="text" on:input={handleInput} value={linkname}> -->
+	<input type="text" bind:value={linkname}>
 </main>
 
 <style>
