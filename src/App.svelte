@@ -1,22 +1,33 @@
 <script>
-	let name = 'atidorfa';
-	let linkname = 'Google'
+	let firstName = 'ati';
+	let lastName = 'dorfa'
+	let pColour = 'Enter a color'
 
+	$: fullName = `${firstName}${lastName}`;
+	// $: console.log(pColour);
+	$: {
+		console.log(pColour);
+		console.log(fullName);
+	}
 	const handleClick = () => {
-		linkname = 'Google';
+		pColour = 'Orange';
 	};
 
 	const handleInput = (e) => {
-		linkname = e.target.value;
+		pColour = e.target.value;
 	};
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p style="color: {linkname};">This is a link to <a href="https://google.com.ar">{linkname}</a></p>
+	<h1 style="color: {pColour};">Hello {fullName}!</h1>
+	<p>This is a link to <a href="https://google.com.ar">Google</a></p>
 	<button on:click={handleClick}>Update</button>
-	<!-- <input type="text" on:input={handleInput} value={linkname}> -->
-	<input type="text" bind:value={linkname}>
+	<!-- <input type="text" on:input={handleInput} value={pColour}> -->
+	<input type="text" bind:value={pColour}>
+	<br>
+	<input type="text" bind:value={firstName}>
+	<input type="text" bind:value={lastName}>
+
 </main>
 
 <style>
