@@ -1,33 +1,20 @@
 <script>
-	let firstName = 'ati';
-	let lastName = 'dorfa'
-	let pColour = 'Enter a color'
-
-	$: fullName = `${firstName}${lastName}`;
-	// $: console.log(pColour);
-	$: {
-		console.log(pColour);
-		console.log(fullName);
-	}
-	const handleClick = () => {
-		pColour = 'Orange';
-	};
-
-	const handleInput = (e) => {
-		pColour = e.target.value;
-	};
+	let people = [
+		{ name: 'yoshi', beltColour: 'black', age: 25, id: 1 },
+		{ name: 'mario', beltColour: 'orange', age: 45, id: 2 },
+		{ name: 'luigi', beltColour: 'brown', age: 35, id: 3 }
+	]
 </script>
 
 <main>
-	<h1 style="color: {pColour};">Hello {fullName}!</h1>
-	<p>This is a link to <a href="https://google.com.ar">Google</a></p>
-	<button on:click={handleClick}>Update</button>
-	<!-- <input type="text" on:input={handleInput} value={pColour}> -->
-	<input type="text" bind:value={pColour}>
-	<br>
-	<input type="text" bind:value={firstName}>
-	<input type="text" bind:value={lastName}>
-
+	{#each people as person (person.id)}
+        <div>
+            <h4>{person.name}</h4>
+            <p>{person.age} years old, {person.beltColour} belt.</p>
+        </div>
+    {:else}
+        <p>There are no people to show...</p>
+    {/each}
 </main>
 
 <style>
@@ -36,13 +23,6 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
 	}
 
 	@media (min-width: 640px) {
