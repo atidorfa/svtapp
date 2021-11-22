@@ -29,11 +29,20 @@
     <p>Not greater than 5</p>
 {/if} -->
 
-<Modal message="Hey, atidorfa is waiting" {showModal} on:click={toggleModal} />
+<Modal {showModal} on:click={toggleModal} >
+    <form>
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Belt colour">
+        <button>Add person</button>
+    </form>
+    <div slot="title">
+        <h3>Add a new person</h3>
+    </div>
+</Modal>
 <!-- <Modal isPromo={true}/> -->
 
 <main>
-    <button on:click|once={toggleModal}>Show Modal</button>
+    <button on:click={toggleModal}>Show Modal</button>
 	{#each people as person (person.id)}
         <div>
             <h4>{person.name}</h4>
