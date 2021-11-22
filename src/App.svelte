@@ -46,7 +46,7 @@
 <!-- <Modal isPromo={true}/> -->
 
 <main>
-    <button on:click={toggleModal}>Show Modal</button>
+    <button on:click={toggleModal}>Add person</button>
 	{#each people as person (person.id)}
         <div>
             <h4>{person.name}</h4>
