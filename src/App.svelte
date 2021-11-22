@@ -24,7 +24,8 @@
     <p>Not greater than 5</p>
 {/if} -->
 
-<Modal />
+<Modal message="Hey, atidorfa is waiting" isPromo={true}/>
+<!-- <Modal isPromo={true}/> -->
 
 <main>
 	{#each people as person (person.id)}
