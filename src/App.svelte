@@ -9,7 +9,7 @@
 	];
 
     const handleClick = (e, id) => {
-        console.log(e);
+        // console.log(e);
         people = people.filter((person) => person.id != id)
     }
 
@@ -18,6 +18,13 @@
 
     const toggleModal = () => {
         showModal = !showModal;
+    }
+
+    const addPersonHandler = (e) => {
+        // console.log(e.detail);
+        const person = e.detail;
+        people = [person, ...people];
+        showModal = false;
     }
 
 </script>
@@ -34,7 +41,7 @@
     <div slot="title">
         <h3>Add a new person</h3>
     </div>
-    <AddPersonForm />
+    <AddPersonForm on:addPerson={addPersonHandler} />
 </Modal>
 <!-- <Modal isPromo={true}/> -->
 
