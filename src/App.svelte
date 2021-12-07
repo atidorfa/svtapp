@@ -67,6 +67,7 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
+        font-style: italic;
 	}
 
 	@media (min-width: 640px) {
